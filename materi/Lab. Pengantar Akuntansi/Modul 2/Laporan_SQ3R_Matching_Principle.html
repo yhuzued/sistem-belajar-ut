@@ -1,8 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
+    <!-- 1. MASUKKAN TAG VIEWPORT DI SINI -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Laporan Belajar SQ3R: Pengantar Ilmu Akuntansi - Matching Principle</title>
     <style>
         body { font-family: 'Georgia', serif; line-height: 1.7; color: #334155; max-width: 850px; margin: 40px auto; padding: 20px; background: #fcfbf9; }
@@ -15,6 +17,35 @@
         .feedback { margin-top: 12px; background: #f0fdf4; padding: 12px; border: 1px solid #bbf7d0; border-radius: 6px; color: #166534; font-size: 0.95em; }
         .notes-area { white-space: pre-wrap; font-family: 'Georgia', serif; padding: 15px; background: #fffdf5; border: 1px solid #e9dfc6; border-radius: 6px; }
         .score-badge { display: inline-block; background: #1e3a8a; color: white; padding: 5px 12px; border-radius: 9999px; font-size: 0.85em; font-family: system-ui, sans-serif; }
+        
+        /* 2. MASUKKAN CSS RESPONSIF INI DI BAGIAN BAWAH STYLE SEBELUM @MEDIA PRINT */
+        @media (max-width: 640px) {
+            body {
+                margin: 10px auto;
+                padding: 12px;
+                font-size: 15px; /* Ukuran teks yang nyaman dibaca di layar kecil */
+            }
+            .header-meta {
+                margin-bottom: 20px;
+                padding-bottom: 15px;
+            }
+            .header-meta h1 {
+                font-size: 1.6em !important;
+            }
+            .header-meta h2 {
+                font-size: 1.1em !important;
+            }
+            .section {
+                padding: 15px;
+                margin-bottom: 20px;
+                border-radius: 8px;
+            }
+            .card {
+                padding: 12px 15px;
+                margin-bottom: 15px;
+            }
+        }
+
         @media print {
             body { margin: 0; background: white; }
             .section { box-shadow: none; border: none; padding: 0; margin-bottom: 30px; }
