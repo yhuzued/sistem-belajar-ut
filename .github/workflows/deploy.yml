@@ -3,7 +3,7 @@ name: Deploy Portal to GitHub Pages
 on:
   push:
     branches:
-      - main # Memicu aksi saat Anda push ke branch main
+      - master # Memicu aksi saat Anda push ke branch main
 
 permissions:
   contents: write
