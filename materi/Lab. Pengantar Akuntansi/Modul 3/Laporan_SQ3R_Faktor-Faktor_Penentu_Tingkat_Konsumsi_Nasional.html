@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -8,44 +7,136 @@
     <!-- Tambahan stylesheet KaTeX agar rumus matematika di file ekspor ter-render dengan sempurna -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     <style>
-        body { font-family: 'Georgia', serif; line-height: 1.7; color: #334155; max-width: 850px; margin: 40px auto; padding: 20px; background: #fcfbf9; }
-        h1, h2, h3 { color: #1e3a8a; font-family: system-ui, sans-serif; margin-bottom: 10px; }
-        .header-meta { margin-bottom: 35px; border-bottom: 3px double #1e3a8a; padding-bottom: 20px; text-align: center; }
-        .header-meta p { font-size: 0.9em; color: #64748b; margin: 5px 0 0 0; font-family: system-ui, sans-serif; }
-        .section { margin-bottom: 40px; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; }
-        .card { border-left: 4px solid #1e3a8a; padding-left: 20px; margin-bottom: 25px; background: #fafaf9; padding: 15px 20px; border-radius: 6px; }
-        .user-answer { margin-top: 12px; background: #fff; padding: 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 0.95em; }
-        .feedback { margin-top: 12px; background: #f0fdf4; padding: 12px; border: 1px solid #bbf7d0; border-radius: 6px; color: #166534; font-size: 0.95em; }
-        .notes-area { white-space: pre-wrap; font-family: 'Georgia', serif; padding: 15px; background: #fffdf5; border: 1px solid #e9dfc6; border-radius: 6px; }
-        .score-badge { display: inline-block; background: #1e3a8a; color: white; padding: 5px 12px; border-radius: 9999px; font-size: 0.85em; font-family: system-ui, sans-serif; }
-        .review-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; flex-wrap: wrap; gap: 10px; }
-        
-        /* CSS Responsif Mobile */
-        @media (max-width: 640px) {
-            body { margin: 10px auto; padding: 12px; font-size: 15px; }
-            .header-meta { margin-bottom: 20px; padding-bottom: 15px; }
-            .header-meta h1 { font-size: 1.6em !important; }
-            .header-meta h2 { font-size: 1.1em !important; }
-            .section { padding: 15px; margin-bottom: 20px; border-radius: 8px; }
-            .card { padding: 12px 14px; margin-bottom: 15px; }
+        body { 
+            font-family: 'Georgia', serif; 
+            line-height: 1.6; 
+            color: #334155; 
+            max-width: 800px; 
+            margin: 20px auto; 
+            padding: 15px; 
+            background: #fcfbf9; 
         }
-        @media print {
-            body { margin: 0; background: white; }
-            .section { box-shadow: none; border: none; padding: 0; margin-bottom: 30px; }
+        h1, h2, h3 { color: #1e3a8a; font-family: system-ui, -apple-system, sans-serif; margin-top: 0; margin-bottom: 8px; }
+        h1 { font-size: 1.8em; }
+        h2 { font-size: 1.3em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; margin-bottom: 15px; }
+        h3 { font-size: 1.05em; }
+        
+        .header-meta { 
+            margin-bottom: 25px; 
+            border-bottom: 3px double #1e3a8a; 
+            padding-bottom: 15px; 
+            text-align: center; 
+        }
+        .header-meta p { 
+            font-size: 0.85em; 
+            color: #64748b; 
+            margin: 5px 0 0 0; 
+            font-family: system-ui, -apple-system, sans-serif; 
+        }
+        
+        .section { 
+            margin-bottom: 25px; 
+            background: white; 
+            padding: 20px; 
+            border-radius: 12px; 
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05); 
+            border: 1px solid #e2e8f0; 
+        }
+        
+        .card { 
+            border-left: 3px solid #1e3a8a; 
+            padding: 12px 15px; 
+            margin-bottom: 15px; 
+            background: #fafaf9; 
+            border-radius: 6px; 
+        }
+        
+        .user-answer { 
+            margin-top: 10px; 
+            background: #fff; 
+            padding: 10px 12px; 
+            border: 1px solid #cbd5e1; 
+            border-radius: 6px; 
+            font-size: 0.9em; 
+        }
+        
+        .feedback { 
+            margin-top: 10px; 
+            background: #f0fdf4; 
+            padding: 10px 12px; 
+            border: 1px solid #bbf7d0; 
+            border-radius: 6px; 
+            color: #166534; 
+            font-size: 0.9em; 
+        }
+        
+        .notes-area { 
+            white-space: pre-wrap; 
+            font-family: 'Georgia', serif; 
+            padding: 12px; 
+            background: #fffdf5; 
+            border: 1px solid #e9dfc6; 
+            border-radius: 6px; 
+            font-size: 0.9em; 
+        }
+        
+        .score-badge { 
+            display: inline-block; 
+            background: #1e3a8a; 
+            color: white; 
+            padding: 4px 10px; 
+            border-radius: 9999px; 
+            font-size: 0.8em; 
+            font-family: system-ui, -apple-system, sans-serif; 
+            font-weight: bold;
+        }
+        
+        .review-header { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            margin-bottom: 15px; 
+            flex-wrap: wrap; 
+            gap: 10px; 
+        }
+
+        /* Responsive Mobile Layout Adjustments */
+        @media (max-width: 600px) {
+            body { 
+                margin: 10px auto; 
+                padding: 10px; 
+            }
+            .section { 
+                padding: 15px; 
+                margin-bottom: 20px; 
+            }
+            .card { 
+                padding: 10px 12px; 
+                margin-bottom: 12px; 
+            }
+            h1 { font-size: 1.45em; }
+            h2 { font-size: 1.15em; }
+            h3 { font-size: 0.95em; }
+            .header-meta h1 { font-size: 1.5em !important; }
+            .header-meta h2 { font-size: 1.1em !important; }
+            .user-answer, .feedback, .notes-area {
+                font-size: 0.85em;
+                padding: 8px 10px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="header-meta">
-        <h1 style="margin: 0; font-size: 2.2em;">Pengantar Ekonomi Makro</h1>
-        <h2 style="margin: 10px 0 0 0; font-size: 1.4em; color: #475569;">Topik: Faktor-Faktor Penentu Tingkat Konsumsi Nasional</h2>
+        <h1 style="margin: 0; font-size: 2em;">Pengantar Ekonomi Makro</h1>
+        <h2 style="margin: 8px 0 0 0; font-size: 1.25em; color: #475569;">Topik: Faktor-Faktor Penentu Tingkat Konsumsi Nasional</h2>
         <p>Laporan Hasil Sesi Belajar Mandiri Terstruktur (Metode SQ3R) &bull; Universitas Terbuka</p>
     </div>
     
     <div class="section">
         <h2>1. Survey (Rangkuman Pembelajaran)</h2>
-        <div style="font-size: 0.95em;"><p>Halo! Salam hangat dan semangat belajar untuk rekan-rekan mahasiswa <strong>Universitas Terbuka (UT)</strong> di mana pun Anda berada. </p>
-<p>Sebagai rekan belajar interaktif Anda, saya telah menyusun <strong>Ringkasan Eksekutif (Survey Modul)</strong> untuk mata kuliah <strong>Pengantar Ekonomi Makro</strong>, khususnya pada topik yang sangat krusial: <strong>Faktor-Faktor Penentu Tingkat Konsumsi Nasional</strong>.</p>
+        <div style="font-size: 0.9em; line-height: 1.7;"><p>Halo! Salam hangat dan semangat belajar untuk rekan-rekan mahasiswa <strong>Universitas Terbuka (UT)</strong> di mana pun Anda berada. </p>
+<p>Asisten belajar interaktif Anda telah menyusun <strong>Ringkasan Eksekutif (Survey Modul)</strong> untuk mata kuliah <strong>Pengantar Ekonomi Makro</strong>, khususnya pada topik yang sangat krusial: <strong>Faktor-Faktor Penentu Tingkat Konsumsi Nasional</strong>.</p>
 <p>Mari kita bedah materi ini secara terstruktur, mendalam, dan mudah dipahami agar Anda siap menghadapi tutorial online (tuton) maupun Ujian Akhir Semester (UAS).</p>
 <hr>
 <h1>📌 SURVEY MODUL: FAKTOR-FAKTOR PENENTU TINGKAT KONSUMSI NASIONAL</h1>
@@ -112,7 +203,7 @@
 <ol>
 <li><strong>Pendapatan Disposable (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Y</mi><mi>d</mi></msub></mrow><annotation encoding="application/x-tex">Y_d</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.2222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">d</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>)</strong> adalah penentu jangka pendek paling utama dari konsumsi nasional. Setiap kebijakan pajak pemerintah akan langsung berdampak pada daya beli masyarakat melalui variabel ini.</li>
 <li><strong>Teori Pendapatan Permanen</strong> dan <strong>Teori Siklus Hidup</strong> menjelaskan bahwa konsumsi tidak hanya dipengaruhi oleh kondisi hari ini, melainkan oleh <strong>ekspektasi masa depan</strong> dan <strong>perencanaan jangka panjang</strong> hidup manusia.</li>
-<li><strong>Kekayaan</strong> berfungsi sebagai bantalan finansial; semakin tinggi nilai aset masyarakat, semakin tinggi pula kecenderungan mereka untuk melakukan konsumsi (<em>Wealth Effect</em>).</li>
+<li><strong>Kekayaan</strong> berfungsi asalkan bantalan finansial; semakin tinggi nilai aset masyarakat, semakin tinggi pula kecenderungan mereka untuk melakukan konsumsi (<em>Wealth Effect</em>).</li>
 </ol>
 <hr>
 <p><strong>Tetap semangat belajar mandiri, Rekan Mahasiswa UT!</strong> Keaktifan Anda dalam membaca modul dan berdiskusi adalah kunci sukses di Universitas Terbuka. Jika ada bagian yang ingin didiskusikan lebih lanjut, silakan tanyakan kepada saya. Selamat belajar!</p>
@@ -248,68 +339,46 @@
 <p>Agar konsep ini melekat kuat di ingatan Anda tanpa perlu menghafal kalimat yang panjang, mari kita bayangkan analogi sederhana berikut:</p>
 <blockquote>
 <p><strong>&quot;Analogi Emas Batangan di Lemari&quot;</strong> 🪙</p>
-<p>Bayangkan Anda adalah seorang karyawan dengan <strong>gaji tetap Rp 5 juta per bulan</strong> (ini adalah <em>Pendapatan Disposable</em> Anda yang stabil). Di lemari, Anda memiliki <strong>simpanan emas batangan</strong> warisan senilai <strong>Rp 50 juta</strong> (ini adalah <em>Kekayaan</em> Anda). </p>
-<p>Karena merasa punya &quot;cadangan&quot; emas senilai Rp 50 juta, Anda merasa aman dan sering jajan kopi kekinian atau makan di restoran di akhir pekan menggunakan gaji bulanan Anda.</p>
-<p>Tiba-tiba, terjadi krisis global yang membuat <strong>harga emas anjlok drastis</strong>, sehingga emas di lemari Anda sekarang nilainya tinggal <strong>Rp 15 juta</strong>. </p>
-<p><em>Apa yang terjadi?</em> Gaji bulanan Anda <strong>tetap Rp 5 juta</strong> (tidak berkurang), tetapi secara psikologis, Anda merasa &quot;kehilangan kekayaan&quot;. Seketika Anda akan merasa cemas, mulai mengurangi jajan kopi, membatalkan rencana liburan, dan memilih menyimpan sisa gaji di rekening tabungan. </p>
-<p>Inilah <strong>Efek Kekayaan Negatif</strong>! Penurunan nilai emas (aset) membuat Anda mengerem belanja, meskipun gaji (pendapatan) Anda tidak berubah.</p>
+<p>Bayangkan Anda adalah seorang karyawan dengan <strong>gaji tetap Rp12.000.000</strong> untuk menunjang pekerjaan Anda sebagai <em>freelancer</em> selama <strong>2 tahun (24 bulan)</strong>. </p>
+<p>Jika Anda mencatat seluruh Rp12.000.000 sebagai beban di bulan pertama, maka laporan keuangan pribadi Anda bulan itu akan terlihat &#39;bangkrut&#39;. Padahal, smartphone itu adalah &#39;karyawan&#39; yang membantu Anda mencari uang selama 24 bulan ke depan. </p>
+<p>Jadi, agar adil, setiap bulan Anda harus menganggap bahwa Anda &#39;menggaji&#39; smartphone tersebut sebesar <strong>Rp500.000</strong> (Rp12jt / 24 bulan). Inilah yang disebut <strong>Matching Principle</strong>: Menandingkan manfaat (pendapatan yang dihasilkan smartphone) dengan beban (biaya penyusutan smartphone) di setiap bulannya.&quot;</p>
 </blockquote>
 <hr>
-<h3>🎯 Catatan Tutor untuk Anda:</h3>
-<p>Anda telah memahami materi ini dengan sangat baik. Pertahankan cara berpikir kritis dan sistematis seperti ini. Dengan pemahaman konsep yang kuat ditambah analogi sederhana di atas, saya yakin Anda akan dengan mudah melibas soal-soal terkait Teori Konsumsi di Tutorial Online maupun UAS nanti!</p>
-<p>Tetap semangat belajar mandiri di Universitas Terbuka. Anda sudah berada di jalur yang tepat! Jika ada hal lain yang ingin didiskusikan, jangan ragu untuk menulis di kolom diskusi ya. </p>
-<p><em>Salam sukses dan tetap semangat!</em> 💪😊</p>
+<p><strong>Pesan Penutup:</strong><br>Luar biasa sekali progres belajar Anda! Anda tidak hanya menghafal definisi, tetapi sudah mampu menerapkan logika akuntansi ke dalam kasus nyata. Terus pertahankan semangat ini ya, Rekan Mahasiswa. Jika ada hal lain yang ingin didiskusikan, saya selalu siap membantu.</p>
+<p>Selamat melanjutkan sesi tuton, Anda pasti bisa menaklukkan mata kuliah ini! 🎓✨</p>
 </div>
                             </div>
                         </div>
                     
                         <div class="card">
-                            <h3>Pertanyaan 4: Mengapa kebijakan pemerintah yang mentransfer pendapatan dari kelompok kaya ke kelompok miskin (misalnya melalui pajak progresif dan subsidi) cenderung meningkatkan total konsumsi nasional? Analisis fenomena ini dengan menggunakan konsep Marginal Propensity to Consume (MPC)!</h3>
+                            <h3>Pertanyaan 4: Dalam kasus penyusutan aset tetap, mengapa biaya perolehan mesin tidak dibebankan seluruhnya pada saat pembelian, dan bagaimana proses alokasi biaya tersebut mencerminkan prinsip penandingan?</h3>
                             <div class="user-answer">
                                 <strong>Jawaban Anda:</strong><br>
-                                <p style="white-space: pre-wrap; margin-top: 5px;">Dalam banyak survey dan studi, dikatakan bahwa masyarakat berpenghasilan sangat rendah akan memiliki tingkat konsumsi yang tinggi. Hal ini dikarenakan karena kebutuhan mereka untuk bertahan hidup akan sama atau bahkan lebih banyak dari pendapatan mereka. Jika pemerintah melakukan transfer pendapatan dari kelompok kaya, maka masyarakat dengan MPC yang tinggi akan menggunakan dana tambahan yang mereka miliki untuk konsumsi untuk pertama, menutupi kebutuhan mereka lalu meningkatkan kualtias hidup mereka. Nilai konsumsi nasional menjadi lebih tinggi.</p>
+                                <p style="white-space: pre-wrap; margin-top: 5px;">Karena aset tersebut bermanfaat ketika alat tersebut masih bisa digunakan. Jika masa gunanya 10 tahun, maka biaya tersebut harus disebarkan dalam 10 tahun. Nantinya ini akan jadi matching antara manfaat dan biaya yang kita keluarkan.</p>
                             </div>
                             
                             <div class="feedback">
                                 <strong>Feedback Tutor AI:</strong><br>
-                                <div style="margin-top: 5px;"><p>Halo! Salam hangat, penuh semangat, dan salam sukses untuk Anda, Rekan Mahasiswa Universitas Terbuka yang luar biasa! </p>
-<p>Senang sekali melihat antusiasme dan ketajaman berpikir Anda dalam menjawab pertanyaan evaluasi ini. Di tengah kesibukan Anda (mungkin sambil bekerja atau mengurus keluarga), Anda tetap mampu memberikan analisis yang sangat kritis. Ini patut diacungi jempol! 👍</p>
-<p>Berikut adalah feedback komprehensif untuk jawaban yang telah Anda berikan:</p>
-<hr>
-<h3>1. Tingkat Kebenaran Jawaban: <strong>SANGAT BAGUS!</strong> 🌟</h3>
-<p>Jawaban Anda <strong>sangat bagus dan sudah tepat sasaran</strong>. Anda telah berhasil menangkap esensi dari konsep <em>Marginal Propensity to Consume</em> (MPC) dan menghubungkannya secara logis dengan kebijakan redistribusi pendapatan (pajak progresif dan subsidi). Analisis Anda mengenai mengapa kelompok berpenghasilan rendah langsung membelanjakan uangnya untuk bertahan hidup dan meningkatkan kualitas hidup adalah poin yang sangat krusial dalam ekonomi makro.</p>
-<hr>
-<h3>2. Penguatan Konsep &amp; Koreksi Miskonsepsi (Secara Ramah)</h3>
-<p>Jawaban Anda sudah sangat baik, namun mari kita pertajam sedikit bahasanya agar nilai Anda di UAS nanti bisa <strong>sempurna (nilai 100)</strong>!</p>
-<p>Ada sedikit hal yang perlu diperjelas agar tidak terjadi salah tafsir:</p>
+                                <div style="margin-top: 5px;"><p>Halo, Rekan Mahasiswa! Senang sekali melihat antusiasme Anda dalam menjawab pertanyaan evaluasi ini. Mari kita bedah jawaban Anda bersama-sama!</p>
+<h3>1. Penilaian Jawaban</h3>
+<p>Jawaban Anda: <strong>Sangat Bagus!</strong></p>
+<p>Anda sudah menangkap esensi utama dari <em>Matching Principle</em> dalam konteks penyusutan aset tetap. Anda memahami dengan tepat bahwa biaya tidak boleh diakui sekaligus karena manfaat ekonomis dari aset tersebut dinikmati dalam jangka waktu yang panjang, bukan hanya saat pembelian. Pemahaman Anda mengenai konsep &quot;penyebaran biaya&quot; sudah sangat tepat.</p>
+<h3>2. Ulasan dan Penguatan Konsep</h3>
+<p>Penjelasan Anda sudah benar secara logika. Untuk membuatnya lebih tajam secara teknis akuntansi, mari kita tambahkan sedikit detail:</p>
 <ul>
-<li><strong>Koreksi Istilah:</strong> Di awal jawaban, Anda menulis: <em>&quot;masyarakat berpenghasilan sangat rendah akan memiliki tingkat konsumsi yang tinggi.&quot;</em> <ul>
-<li><em>Perbaikannya:</em> Secara <strong>nominal (jumlah uang)</strong>, konsumsi orang kaya tetap lebih besar daripada orang miskin. Namun, secara <strong>proporsi/persentase dari tambahan pendapatan (yaitu MPC)</strong>, kelompok miskinlah yang jauh lebih tinggi.</li>
+<li><strong>Mengapa tidak sekaligus?</strong> Jika kita membebankan Rp120 juta (harga mesin) sekaligus di bulan pertama, maka laba perusahaan di bulan itu akan terlihat sangat kecil (bahkan mungkin rugi besar), padahal mesin tersebut akan terus menghasilkan uang selama 5 tahun ke depan. Sebaliknya, di bulan-bulan berikutnya, laba akan terlihat &quot;terlalu tinggi&quot; karena tidak ada beban mesin. Ini akan menyesatkan pembaca laporan keuangan.</li>
+<li><strong>Proses Alokasi:</strong> Proses ini dalam akuntansi disebut dengan <strong>Depresiasi</strong>. Kita mengalokasikan biaya perolehan aset menjadi beban secara sistematis selama masa manfaatnya. Dengan demikian, setiap rupiah pendapatan yang dihasilkan oleh mesin di bulan ke-1 hingga bulan ke-60, &quot;ditemani&quot; oleh porsi beban penyusutan yang adil.</li>
 </ul>
-</li>
-<li><strong>Mari kita bedah mekanismenya dengan angka sederhana (Teori Keynes):</strong><ul>
-<li><strong>Kelompok Kaya (MPC Rendah, misal 0,2):</strong> Jika mereka mendapat tambahan pendapatan Rp1.000.000, mereka hanya membelanjakan Rp200.000 (20%) dan menabung sisanya (Rp800.000). Mengapa? Karena semua kebutuhan pokok mereka sudah terpenuhi.</li>
-<li><strong>Kelompok Miskin (MPC Tinggi, misal 0,9):</strong> Jika mereka mendapat tambahan Rp1.000.000, mereka akan membelanjakan Rp900.000 (90%) untuk sembako, biaya sekolah, dll., dan hanya menabung Rp100.000.</li>
-<li><strong>Efek Transfer:</strong> Ketika pemerintah mengambil Rp1.000.000 dari si kaya lewat pajak (konsumsi si kaya hanya turun Rp200.000) dan mentransfernya ke si miskin lewat subsidi (konsumsi si miskin naik Rp900.000), maka <strong>Total Konsumsi Nasional bersih meningkat sebesar Rp700.000!</strong> (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mi>p</mi><mn>900.000</mn><mo>−</mo><mi>R</mi><mi>p</mi><mn>200.000</mn></mrow><annotation encoding="application/x-tex">Rp900.000 - Rp200.000</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">Rp</span><span class="mord">900.000</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">Rp</span><span class="mord">200.000</span></span></span></span>).</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h3>3. Analogi Cerdas untuk Mahasiswa UT yang Sibuk (Mudah Dihafal!)</h3>
-<p>Untuk memudahkan Anda mengingat konsep ini kapan saja, bahkan saat sedang bekerja, bayangkan analogi <strong>&quot;Spons Kering vs. Spons Basah&quot;</strong> ini:</p>
+<h3>3. Analogi Cerdas: &quot;Analogi Beli Smartphone untuk Kerja&quot;</h3>
+<p>Agar konsep ini makin melekat di ingatan Anda yang sibuk, bayangkan ini:</p>
 <blockquote>
-<p>🧽 <strong>Analogi Spons (Busa Pencuci Piring)</strong></p>
-<ul>
-<li><strong>Kelompok Kaya adalah &quot;Spons yang Sudah Basah Kuyup&quot;</strong> (sudah penuh air/uang). Jika Anda menyiramkan segelas air (tambahan pendapatan) ke spons yang sudah basah ini, airnya akan meluap begitu saja dan tidak meresap (tidak dikonsumsi, melainkan ditabung).</li>
-<li><strong>Kelompok Miskin adalah &quot;Spons yang Kering Kerontang&quot;</strong> (kekurangan uang). Jika Anda menyiramkan segelas air yang sama ke spons kering ini, air tersebut akan <strong>langsung diserap habis seketika</strong> (langsung dibelanjakan/dikonsumsi).</li>
-</ul>
-<p><em>Kesimpulan:</em> Memindahkan air dari spons yang terlalu basah ke spons yang kering akan membuat air tersebut terserap secara maksimal. Itulah mengapa transfer pendapatan meningkatkan total konsumsi nasional!</p>
+<p>&quot;Bayangkan Anda membeli sebuah <strong>Smartphone seharga Rp12.000.000</strong> untuk menunjang pekerjaan Anda sebagai <em>freelancer</em> selama <strong>2 tahun (24 bulan)</strong>. </p>
+<p>Jika Anda mencatat seluruh Rp12.000.000 sebagai beban di bulan pertama, maka laporan keuangan pribadi Anda bulan itu akan terlihat &#39;bangkrut&#39;. Padahal, smartphone itu adalah &#39;karyawan&#39; yang membantu Anda mencari uang selama 24 bulan ke depan. </p>
+<p>Jadi, agar adil, setiap bulan Anda harus menganggap bahwa Anda &#39;menggaji&#39; smartphone tersebut sebesar <strong>Rp500.000</strong> (Rp12jt / 24 bulan). Inilah yang disebut <strong>Matching Principle</strong>: Menandingkan manfaat (pendapatan yang dihasilkan smartphone) dengan beban (biaya penyusutan smartphone) di setiap bulannya.&quot;</p>
 </blockquote>
 <hr>
-<h3>🌟 Catatan Tutor untuk Anda:</h3>
-<p>Anda memiliki kemampuan analisis ekonomi yang sangat kuat. Pertahankan cara berpikir kritis seperti ini. Langkah Anda untuk mengaitkan teori dengan realitas bertahan hidup masyarakat adalah pendekatan sosiologis-ekonomis yang sangat humanis dan tepat.</p>
-<p>Jika ada bagian dari Modul Pengantar Ekonomi Makro ini yang masih membingungkan, jangan ragu untuk berdiskusi lagi di forum tuton ya. </p>
-<p><strong>Selamat melanjutkan aktivitas dan tetap semangat belajar mandiri! Anda pasti sukses di UAS nanti!</strong> 💪😊</p>
+<p><strong>Pesan Penutup:</strong><br>Luar biasa sekali progres belajar Anda! Anda tidak hanya menghafal definisi, tetapi sudah mampu menerapkan logika akuntansi ke dalam kasus nyata. Terus pertahankan semangat ini ya, Rekan Mahasiswa. Jika ada hal lain yang ingin didiskusikan, saya selalu siap membantu.</p>
+<p>Selamat melanjutkan sesi tuton, Anda pasti bisa menaklukkan mata kuliah ini! 🎓✨</p>
 </div>
                             </div>
                         </div>
@@ -328,41 +397,41 @@
         </div>
         
                         <div class="card">
-                            <h3>Soal 1: Pemerintah memutuskan untuk membagikan Bantuan Langsung Tunai (BLT) sebesar Rp 500.000 sekali bayar (one-time transfer) untuk menjaga daya beli masyarakat di tengah inflasi. Berdasarkan Teori Pendapatan Absolut (Keynes) dan Teori Pendapatan Permanen (Friedman), bagaimana kedua teori ini memprediksi efektivitas kebijakan tersebut terhadap peningkatan konsumsi nasional?</h3>
+                            <h3>Soal 1: Berdasarkan Teori Pendapatan Absolut dari Keynes, bagaimana perilaku rumah tangga secara agregat ketika mereka menerima peningkatan Pendapatan Disposable (Yd)?</h3>
                             <ul style="list-style-type: none; padding-left: 0;">
-                                <li style="padding: 6px; border-radius: 4px; margin-bottom: 4px; border: 1px solid #e2e8f0;">A. Friedman memprediksi konsumsi akan melonjak tajam karena BLT meningkatkan pendapatan disposable secara instan, sedangkan Keynes memprediksi seluruh bantuan akan ditabung oleh masyarakat.</li><li style="padding: 6px; border-radius: 4px; margin-bottom: 4px; border: 1px solid #e2e8f0; background: #f0fdf4; border-color: #bbf7d0; color: #166534; font-weight: bold;">B. Friedman memprediksi BLT hanya akan berdampak kecil pada konsumsi karena dianggap sebagai pendapatan transitori yang cenderung ditabung, sedangkan Keynes memprediksi peningkatan konsumsi yang signifikan terutama pada kelompok berpendapatan rendah karena memiliki MPC yang tinggi.</li><li style="padding: 6px; border-radius: 4px; margin-bottom: 4px; border: 1px solid #e2e8f0;">C. Kedua teori sepakat bahwa kebijakan BLT sekali bayar tidak akan memberikan dampak apa pun terhadap konsumsi karena jumlahnya yang terlalu kecil untuk memengaruhi keputusan ekonomi rumah tangga.</li><li style="padding: 6px; border-radius: 4px; margin-bottom: 4px; border: 1px solid #e2e8f0;">D. Keynes memprediksi konsumsi akan menurun karena masyarakat mengantisipasi kenaikan pajak di masa depan, sementara Friedman memprediksi konsumsi akan meningkat secara permanen.</li>
+                                <li style="padding: 6px; border-radius: 4px; margin-bottom: 4px; border: 1px solid #e2e8f0;">A. Rumah tangga akan menghabiskan seluruh tambahan pendapatan tersebut untuk konsumsi (MPC = 1).</li><li style="padding: 6px; border-radius: 4px; margin-bottom: 4px; border: 1px solid #e2e8f0; background: #f0fdf4; border-color: #bbf7d0; color: #166534; font-weight: bold;">B. Rumah tangga akan meningkatkan konsumsi mereka, tetapi peningkatan tersebut tidak sebesar peningkatan pendapatan disposable karena sebagian akan ditabung.</li><li style="padding: 6px; border-radius: 4px; margin-bottom: 4px; border: 1px solid #e2e8f0;">C. Rumah tangga akan menyimpan seluruh tambahan pendapatan tersebut dalam bentuk tabungan tanpa menambah konsumsi sedikit pun.</li><li style="padding: 6px; border-radius: 4px; margin-bottom: 4px; border: 1px solid #e2e8f0;">D. Tingkat konsumsi rumah tangga akan menurun karena peningkatan tabungan secara otomatis memicu penurunan hasrat konsumsi.</li>
                             </ul>
                             <p style="margin-top: 8px; font-size: 0.85em;">
                                 <strong>Status Jawaban:</strong> 
                                 <span style="color: #166534; font-weight: bold;">Benar</span>
                             </p>
-                            <div style="font-size: 0.85em; background: #f8fafc; padding: 10px; border-radius: 4px; border-left: 3px solid #64748b; margin-top: 10px;"><strong>Penjelasan:</strong> <p>Menurut Keynes, konsumsi sangat dipengaruhi oleh pendapatan disposable saat ini; pemberian BLT akan meningkatkan pendapatan disposable dan langsung mendorong konsumsi (terutama bagi masyarakat berpendapatan rendah dengan Marginal Propensity to Consume/MPC yang tinggi). Sebaliknya, Friedman berpendapat bahwa konsumsi ditentukan oleh pendapatan permanen (jangka panjang). Karena BLT sekali bayar bersifat sementara (pendapatan transitori), Friedman memprediksi masyarakat akan cenderung menabung uang tersebut alih-alih membelanjakannya secara agresif.</p>
+                            <div style="font-size: 0.85em; background: #f8fafc; padding: 10px; border-radius: 4px; border-left: 3px solid #64748b; margin-top: 10px;"><strong>Penjelasan:</strong> <p>Keynes merumuskan hukum psikologis mendasar (Keynesian Consumption Function) bahwa ketika pendapatan disposable meningkat, konsumsi juga akan meningkat, namun peningkatannya tidak akan sebesar kenaikan pendapatan (0 &lt; MPC &lt; 1) karena sebagian porsi pendapatan tersebut dialokasikan untuk tabungan.</p>
 </div>
                         </div>
                     
                         <div class="card">
-                            <h3>Soal 2: Sebuah negara mengalami fenomena demografi penuaan penduduk (aging population), di mana proporsi penduduk usia pensiun (di atas 65 tahun) jauh lebih besar dibandingkan penduduk usia produktif. Berdasarkan Teori Siklus Hidup (Life-Cycle Hypothesis) dari Franco Modigliani, apa dampak jangka panjang fenomena ini terhadap tingkat tabungan nasional dan konsumsi?</h3>
+                            <h3>Soal 2: Teori Pendapatan Permanen (Permanent Income Hypothesis) yang dikemukakan oleh Milton Friedman membagi pendapatan menjadi dua komponen. Manakah pernyataan berikut yang paling tepat menggambarkan dampak pengumuman bonus tahunan sekali bayar (one-time bonus) terhadap perilaku konsumsi masyarakat?</h3>
                             <ul style="list-style-type: none; padding-left: 0;">
-                                <li style="padding: 6px; border-radius: 4px; margin-bottom: 4px; border: 1px solid #e2e8f0;">A. Tingkat tabungan nasional akan meningkat pesat karena lansia cenderung menabung seluruh pendapatan pensiun mereka untuk diwariskan kepada generasi berikutnya.</li><li style="padding: 6px; border-radius: 4px; margin-bottom: 4px; border: 1px solid #e2e8f0; background: #f0fdf4; border-color: #bbf7d0; color: #166534; font-weight: bold;">B. Tingkat tabungan nasional akan menurun (terjadi dissaving secara agregat) karena proporsi penduduk yang berada di fase memanfaatkan tabungan masa lalu untuk konsumsi lebih dominan daripada yang menabung.</li><li style="padding: 6px; border-radius: 4px; margin-bottom: 4px; border: 1px solid #e2e8f0;">C. Konsumsi nasional akan mengalami lonjakan eksponensial karena kelompok lansia memiliki pendapatan disposable yang jauh lebih tinggi daripada kelompok produktif.</li><li style="padding: 6px; border-radius: 4px; margin-bottom: 4px; border: 1px solid #e2e8f0;">D. Tidak ada dampak yang signifikan terhadap tabungan maupun konsumsi karena perilaku konsumsi manusia selalu stabil dan konstan di setiap tahapan usia.</li>
+                                <li style="padding: 6px; border-radius: 4px; margin-bottom: 4px; border: 1px solid #e2e8f0;">A. Bonus tahunan akan memicu lonjakan konsumsi jangka panjang yang konstan karena dianggap meningkatkan pendapatan permanen secara signifikan.</li><li style="padding: 6px; border-radius: 4px; margin-bottom: 4px; border: 1px solid #e2e8f0; background: #f0fdf4; border-color: #bbf7d0; color: #166534; font-weight: bold;">B. Bonus tahunan yang merupakan pendapatan transitori (sementara) hanya akan memicu peningkatan konsumsi saat ini dalam porsi kecil, sementara porsi terbesarnya akan ditabung.</li><li style="padding: 6px; border-radius: 4px; margin-bottom: 4px; border: 1px solid #e2e8f0;">C. Bonus tahunan tidak akan berpengaruh sama sekali terhadap tabungan karena masyarakat selalu menghabiskan pendapatan sementara secara instan.</li><li style="padding: 6px; border-radius: 4px; margin-bottom: 4px; border: 1px solid #e2e8f0;">D. Masyarakat akan segera mengambil utang jangka panjang baru karena bonus tahunan dianggap menggeser posisi siklus hidup keuangan mereka.</li>
                             </ul>
                             <p style="margin-top: 8px; font-size: 0.85em;">
                                 <strong>Status Jawaban:</strong> 
                                 <span style="color: #166534; font-weight: bold;">Benar</span>
                             </p>
-                            <div style="font-size: 0.85em; background: #f8fafc; padding: 10px; border-radius: 4px; border-left: 3px solid #64748b; margin-top: 10px;"><strong>Penjelasan:</strong> <p>Teori Siklus Hidup menyatakan bahwa pada masa pensiun, individu mengalami fase &#39;dissaving&#39; (konsumsi lebih besar dari pendapatan) dengan memanfaatkan tabungan yang dikumpulkan selama masa produktif. Jika mayoritas populasi bergeser ke usia non-produktif/pensiun, maka secara agregat tabungan nasional akan menurun karena lebih banyak orang yang mencairkan tabungan mereka untuk konsumsi daripada yang menyisihkan pendapatan.</p>
+                            <div style="font-size: 0.85em; background: #f8fafc; padding: 10px; border-radius: 4px; border-left: 3px solid #64748b; margin-top: 10px;"><strong>Penjelasan:</strong> <p>Menurut Milton Friedman, pengeluaran konsumsi utama ditentukan oleh pendapatan permanen (ekspektasi jangka panjang). Tambahan pendapatan kaget seperti bonus tahunan sekali bayar dikategorikan sebagai pendapatan transitori (sementara), yang mana Marginal Propensity to Consume (MPC) dari pendapatan transitori sangatlah rendah (mendekati nol), sehingga mayoritas dari bonus tersebut akan ditabung.</p>
 </div>
                         </div>
                     
                         <div class="card">
-                            <h3>Soal 3: Akibat kebijakan moneter yang ketat, pasar saham mengalami penurunan tajam (bearish) dan harga properti nasional merosot hingga 20%, meskipun pendapatan disposable (Yd) riil masyarakat tidak mengalami perubahan. Berdasarkan konsep Efek Kekayaan (Wealth Effect), bagaimana pengaruh kondisi ini terhadap tingkat konsumsi nasional?</h3>
+                            <h3>Soal 3: Berdasarkan Teori Siklus Hidup (Life-Cycle Hypothesis) yang dikembangkan oleh Franco Modigliani, perilaku konsumsi seseorang dipengaruhi oleh tahapan usianya. Bagaimana kecenderungan perilaku ekonomi individu pada masa produktif bekerja (working years) dibandingkan dengan masa pensiun (retirement years)?</h3>
                             <ul style="list-style-type: none; padding-left: 0;">
-                                <li style="padding: 6px; border-radius: 4px; margin-bottom: 4px; border: 1px solid #e2e8f0;">A. Konsumsi nasional akan tetap stabil karena pendapatan disposable masyarakat tidak berubah, yang merupakan satu-satunya penentu utama konsumsi.</li><li style="padding: 6px; border-radius: 4px; margin-bottom: 4px; border: 1px solid #e2e8f0;">B. Konsumsi nasional akan meningkat karena penurunan harga aset membuat masyarakat merasa barang-barang di pasar menjadi lebih murah dan terjangkau.</li><li style="padding: 6px; border-radius: 4px; margin-bottom: 4px; border: 1px solid #e2e8f0; background: #f0fdf4; border-color: #bbf7d0; color: #166534; font-weight: bold;">C. Konsumsi nasional akan menurun karena penurunan nilai aset (saham dan properti) mengurangi nilai kekayaan rumah tangga, sehingga mereka merasa kurang aman secara finansial dan memilih mengurangi belanja.</li><li style="padding: 6px; border-radius: 4px; margin-bottom: 4px; border: 1px solid #e2e8f0;">D. Konsumsi hanya akan menurun pada kelompok masyarakat miskin, sedangkan kelompok kaya akan meningkatkan konsumsi mereka untuk membeli aset yang sedang murah.</li>
+                                <li style="padding: 6px; border-radius: 4px; margin-bottom: 4px; border: 1px solid #e2e8f0;">A. Individu cenderung melakukan dissaving (konsumsi melebihi pendapatan) pada masa produktif bekerja dan melakukan saving secara intensif pada masa pensiun.</li><li style="padding: 6px; border-radius: 4px; margin-bottom: 4px; border: 1px solid #e2e8f0; background: #f0fdf4; border-color: #bbf7d0; color: #166534; font-weight: bold;">B. Individu cenderung menabung sebagian besar pendapatan mereka (saving) selama masa produktif bekerja untuk mengakumulasi kekayaan yang akan digunakan membiayai konsumsi mereka pada masa pensiun (dissaving).</li><li style="padding: 6px; border-radius: 4px; margin-bottom: 4px; border: 1px solid #e2e8f0;">C. Tingkat konsumsi individu pada masa pensiun akan selalu sama dengan nol karena pendapatan disposable mereka sepenuhnya terhenti secara mutlak.</li><li style="padding: 6px; border-radius: 4px; margin-bottom: 4px; border: 1px solid #e2e8f0;">D. Individu akan meminjam uang secara agresif (berutang) pada masa pensiun untuk menjaga agar tingkat tabungan nasional mereka tetap meningkat.</li>
                             </ul>
                             <p style="margin-top: 8px; font-size: 0.85em;">
                                 <strong>Status Jawaban:</strong> 
                                 <span style="color: #166534; font-weight: bold;">Benar</span>
                             </p>
-                            <div style="font-size: 0.85em; background: #f8fafc; padding: 10px; border-radius: 4px; border-left: 3px solid #64748b; margin-top: 10px;"><strong>Penjelasan:</strong> <p>Konsep Efek Kekayaan (Wealth Effect) menjelaskan bahwa konsumsi tidak hanya ditentukan oleh pendapatan saat ini, tetapi juga oleh nilai aset yang dimiliki. Ketika nilai pasar dari portofolio saham atau properti turun, kekayaan rumah tangga menyusut secara nominal. Hal ini menciptakan rasa tidak aman secara finansial (merasa &#39;lebih miskin&#39; di atas kertas), yang mendorong masyarakat untuk mengurangi konsumsi saat ini dan meningkatkan tabungan sebagai antisipasi, meskipun pendapatan disposable mereka tetap.</p>
+                            <div style="font-size: 0.85em; background: #f8fafc; padding: 10px; border-radius: 4px; border-left: 3px solid #64748b; margin-top: 10px;"><strong>Penjelasan:</strong> <p>Teori Siklus Hidup berasumsi bahwa rumah tangga melakukan pemerataan konsumsi sepanjang hayat mereka (consumption smoothing). Oleh karena itu, pada masa produktif bekerja (di mana pendapatan melebihi kebutuhan konsumsi minimum), individu akan menabung (saving). Akumulasi tabungan ini kemudian akan dicairkan dan dibelanjakan (dissaving) untuk mempertahankan tingkat konsumsi konstan pada masa pensiun ketika mereka tidak lagi memperoleh pendapatan aktif.</p>
 </div>
                         </div>
                     

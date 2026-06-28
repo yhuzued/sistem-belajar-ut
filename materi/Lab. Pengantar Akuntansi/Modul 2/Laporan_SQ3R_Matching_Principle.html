@@ -2,66 +2,139 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <!-- 1. MASUKKAN TAG VIEWPORT DI SINI -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <title>Laporan Belajar SQ3R: Pengantar Ilmu Akuntansi - Matching Principle</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     <style>
-        body { font-family: 'Georgia', serif; line-height: 1.7; color: #334155; max-width: 850px; margin: 40px auto; padding: 20px; background: #fcfbf9; }
-        h1, h2, h3 { color: #1e3a8a; font-family: system-ui, sans-serif; margin-bottom: 10px; }
-        .header-meta { margin-bottom: 35px; border-bottom: 3px double #1e3a8a; padding-bottom: 20px; text-align: center; }
-        .header-meta p { font-size: 0.9em; color: #64748b; margin: 5px 0 0 0; font-family: system-ui, sans-serif; }
-        .section { margin-bottom: 40px; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; }
-        .card { border-left: 4px solid #1e3a8a; padding-left: 20px; margin-bottom: 25px; background: #fafaf9; padding: 15px 20px; border-radius: 6px; }
-        .user-answer { margin-top: 12px; background: #fff; padding: 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 0.95em; }
-        .feedback { margin-top: 12px; background: #f0fdf4; padding: 12px; border: 1px solid #bbf7d0; border-radius: 6px; color: #166534; font-size: 0.95em; }
-        .notes-area { white-space: pre-wrap; font-family: 'Georgia', serif; padding: 15px; background: #fffdf5; border: 1px solid #e9dfc6; border-radius: 6px; }
-        .score-badge { display: inline-block; background: #1e3a8a; color: white; padding: 5px 12px; border-radius: 9999px; font-size: 0.85em; font-family: system-ui, sans-serif; }
+        body { 
+            font-family: 'Georgia', serif; 
+            line-height: 1.6; 
+            color: #334155; 
+            max-width: 800px; 
+            margin: 20px auto; 
+            padding: 15px; 
+            background: #fcfbf9; 
+        }
+        h1, h2, h3 { color: #1e3a8a; font-family: system-ui, -apple-system, sans-serif; margin-top: 0; margin-bottom: 8px; }
+        h1 { font-size: 1.8em; }
+        h2 { font-size: 1.3em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; margin-bottom: 15px; }
+        h3 { font-size: 1.05em; }
         
-        /* 2. MASUKKAN CSS RESPONSIF INI DI BAGIAN BAWAH STYLE SEBELUM @MEDIA PRINT */
-        @media (max-width: 640px) {
-            body {
-                margin: 10px auto;
-                padding: 12px;
-                font-size: 15px; /* Ukuran teks yang nyaman dibaca di layar kecil */
-            }
-            .header-meta {
-                margin-bottom: 20px;
-                padding-bottom: 15px;
-            }
-            .header-meta h1 {
-                font-size: 1.6em !important;
-            }
-            .header-meta h2 {
-                font-size: 1.1em !important;
-            }
-            .section {
-                padding: 15px;
-                margin-bottom: 20px;
-                border-radius: 8px;
-            }
-            .card {
-                padding: 12px 15px;
-                margin-bottom: 15px;
-            }
+        .header-meta { 
+            margin-bottom: 25px; 
+            border-bottom: 3px double #1e3a8a; 
+            padding-bottom: 15px; 
+            text-align: center; 
+        }
+        .header-meta p { 
+            font-size: 0.85em; 
+            color: #64748b; 
+            margin: 5px 0 0 0; 
+            font-family: system-ui, -apple-system, sans-serif; 
+        }
+        
+        .section { 
+            margin-bottom: 25px; 
+            background: white; 
+            padding: 20px; 
+            border-radius: 12px; 
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05); 
+            border: 1px solid #e2e8f0; 
+        }
+        
+        .card { 
+            border-left: 3px solid #1e3a8a; 
+            padding: 12px 15px; 
+            margin-bottom: 15px; 
+            background: #fafaf9; 
+            border-radius: 6px; 
+        }
+        
+        .user-answer { 
+            margin-top: 10px; 
+            background: #fff; 
+            padding: 10px 12px; 
+            border: 1px solid #cbd5e1; 
+            border-radius: 6px; 
+            font-size: 0.9em; 
+        }
+        
+        .feedback { 
+            margin-top: 10px; 
+            background: #f0fdf4; 
+            padding: 10px 12px; 
+            border: 1px solid #bbf7d0; 
+            border-radius: 6px; 
+            color: #166534; 
+            font-size: 0.9em; 
+        }
+        
+        .notes-area { 
+            white-space: pre-wrap; 
+            font-family: 'Georgia', serif; 
+            padding: 12px; 
+            background: #fffdf5; 
+            border: 1px solid #e9dfc6; 
+            border-radius: 6px; 
+            font-size: 0.9em; 
+        }
+        
+        .score-badge { 
+            display: inline-block; 
+            background: #1e3a8a; 
+            color: white; 
+            padding: 4px 10px; 
+            border-radius: 9999px; 
+            font-size: 0.8em; 
+            font-family: system-ui, -apple-system, sans-serif; 
+            font-weight: bold;
+        }
+        
+        .review-header { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            margin-bottom: 15px; 
+            flex-wrap: wrap; 
+            gap: 10px; 
         }
 
-        @media print {
-            body { margin: 0; background: white; }
-            .section { box-shadow: none; border: none; padding: 0; margin-bottom: 30px; }
+        /* Responsive Mobile Layout Adjustments */
+        @media (max-width: 600px) {
+            body { 
+                margin: 10px auto; 
+                padding: 10px; 
+            }
+            .section { 
+                padding: 15px; 
+                margin-bottom: 20px; 
+            }
+            .card { 
+                padding: 10px 12px; 
+                margin-bottom: 12px; 
+            }
+            h1 { font-size: 1.45em; }
+            h2 { font-size: 1.15em; }
+            h3 { font-size: 0.95em; }
+            .header-meta h1 { font-size: 1.5em !important; }
+            .header-meta h2 { font-size: 1.1em !important; }
+            .user-answer, .feedback, .notes-area {
+                font-size: 0.85em;
+                padding: 8px 10px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="header-meta">
-        <h1 style="margin: 0; font-size: 2.2em;">Pengantar Ilmu Akuntansi</h1>
-        <h2 style="margin: 10px 0 0 0; font-size: 1.4em; color: #475569;">Topik: Matching Principle</h2>
+        <h1 style="margin: 0; font-size: 2em;">Pengantar Ilmu Akuntansi</h1>
+        <h2 style="margin: 8px 0 0 0; font-size: 1.25em; color: #475569;">Topik: Matching Principle</h2>
         <p>Laporan Hasil Sesi Belajar Mandiri Terstruktur (Metode SQ3R) &bull; Universitas Terbuka</p>
     </div>
     
     <div class="section">
         <h2>1. Survey (Rangkuman Pembelajaran)</h2>
-        <div style="font-size: 0.95em;"><p>Halo Rekan Mahasiswa Universitas Terbuka (UT) yang luar biasa! Selamat datang di sesi belajar interaktif kita. </p>
+        <div style="font-size: 0.9em; line-height: 1.7;"><p>Halo Rekan Mahasiswa Universitas Terbuka (UT) yang luar biasa! Selamat datang di sesi belajar interaktif kita. </p>
 <p>Sebagai rekan belajar Anda, saya telah menyusun <strong>Rangkuman Modul (Survey)</strong> yang komprehensif dan terstruktur untuk mata kuliah <strong>Pengantar Ilmu Akuntansi</strong>, khususnya mengenai topik yang sangat krusial: <strong>Matching Principle (Prinsip Penandingan)</strong>.</p>
 <p>Mari kita bedah konsep ini bersama-sama agar Anda siap menghadapi tutorial online (tuton) maupun Ujian Akhir Semester (UAS)!</p>
 <hr>
@@ -247,7 +320,7 @@
 <p>Agar konsep ini melekat kuat di ingatan Anda, bayangkan situasi ini:</p>
 <blockquote>
 <p>Bayangkan Anda menggunakan listrik sepanjang bulan <strong>Desember</strong> untuk menyalakan lampu toko agar bisa berjualan. Tagihan listrik baru datang dan harus dibayar di bulan <strong>Januari</strong>.</p>
-<p>Jika Anda tidak mencatat beban listrik tersebut di bulan Desember (sebagai beban akrual), maka di bulan Desember Anda merasa <strong>&quot;Wah, untung saya besar sekali karena tidak ada biaya listrik!&quot;</strong>. Padahal, itu adalah <strong>ilusi</strong>. Anda menggunakan listrik di Desember untuk mencari uang di Desember, maka biayanya harus &quot;ditempelkan&quot; di Desember.</p>
+<p>Jika Anda tidak mencatat beban listrik tersebut di bulan Desember (asbi beban akrual), maka di bulan Desember Anda merasa <strong>&quot;Wah, untung saya besar sekali karena tidak ada biaya listrik!&quot;</strong>. Padahal, itu adalah <strong>ilusi</strong>. Anda menggunakan listrik di Desember untuk mencari uang di Desember, maka biayanya harus &quot;ditempelkan&quot; di Desember.</p>
 <p><strong>Singkatnya:</strong> <em>Matching Principle</em> itu seperti <strong>&quot;Membayar utang di saat yang sama dengan saat kita menikmati manfaatnya.&quot;</strong> Jangan menunda mencatat beban, karena itu akan membuat &quot;potret&quot; keuntungan kita menjadi palsu!</p>
 </blockquote>
 <hr>
@@ -298,47 +371,56 @@
     </div>
 
     <div class="section">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-            <h2 style="margin: 0;">4. Hasil Uji Mandiri (Review)</h2>
+        <div class="review-header">
+            <h2 style="margin: 0; border: none; padding: 0;">4. Hasil Uji Mandiri (Review)</h2>
             <span class="score-badge">Skor Kuis: 100/100</span>
         </div>
         
                         <div class="card">
                             <h3>Soal 1: Sebuah perusahaan jasa konstruksi menerima pembayaran penuh di muka untuk proyek yang akan dikerjakan selama 18 bulan. Berdasarkan Matching Principle, bagaimana perusahaan harus memperlakukan pengakuan pendapatan dan beban terkait proyek tersebut?</h3>
-                            <ul style="list-style-type: none; padding-left: 0;">
-                                <li style="padding: 6px; border-radius: 4px; margin-bottom: 4px; border: 1px solid #e2e8f0;">A. Pendapatan diakui seluruhnya saat kas diterima, dan beban diakui saat kas dibayarkan.</li><li style="padding: 6px; border-radius: 4px; margin-bottom: 4px; border: 1px solid #e2e8f0; background: #f0fdf4; border-color: #bbf7d0; color: #166534; font-weight: bold;">B. Pendapatan diakui secara proporsional sesuai progres penyelesaian, dan beban diakui pada periode yang sama dengan pendapatan yang diakui tersebut.</li><li style="padding: 6px; border-radius: 4px; margin-bottom: 4px; border: 1px solid #e2e8f0;">C. Pendapatan diakui saat proyek selesai 100%, dan seluruh beban diakui pada bulan pertama pengerjaan.</li><li style="padding: 6px; border-radius: 4px; margin-bottom: 4px; border: 1px solid #e2e8f0;">D. Pendapatan diakui secara proporsional sesuai progres, namun beban diakui hanya saat pembayaran kas dilakukan kepada vendor.</li>
+                            <ul style="list-style-type: none; padding-left: 0; margin: 10px 0 0 0;">
+                                <li style="padding: 8px 12px; border-radius: 6px; margin-bottom: 6px; border: 1px solid #e2e8f0; font-size: 0.9em;">A. Pendapatan diakui seluruhnya saat kas diterima, dan beban diakui saat kas dibayarkan.</li>
+                                <li style="padding: 8px 12px; border-radius: 6px; margin-bottom: 6px; border: 1px solid #bbf7d0; background: #f0fdf4; color: #166534; font-weight: bold; font-size: 0.9em;">B. Pendapatan diakui secara proporsional sesuai progres penyelesaian, dan beban diakui pada periode yang sama dengan pendapatan yang diakui tersebut.</li>
+                                <li style="padding: 8px 12px; border-radius: 6px; margin-bottom: 6px; border: 1px solid #e2e8f0; font-size: 0.9em;">C. Pendapatan diakui saat proyek selesai 100%, dan seluruh beban diakui pada bulan pertama pengerjaan.</li>
+                                <li style="padding: 8px 12px; border-radius: 6px; margin-bottom: 6px; border: 1px solid #e2e8f0; font-size: 0.9em;">D. Pendapatan diakui secara proporsional sesuai progres, namun beban diakui hanya saat pembayaran kas dilakukan kepada vendor.</li>
                             </ul>
                             <p style="margin-top: 8px; font-size: 0.85em;">
                                 <strong>Status Jawaban:</strong> 
                                 <span style="color: #166534; font-weight: bold;">Benar</span>
                             </p>
-                            <div style="font-size: 0.85em; background: #f8fafc; padding: 10px; border-radius: 4px; border-left: 3px solid #64748b; margin-top: 10px;"><strong>Penjelasan:</strong> <p>Matching Principle mengharuskan pendapatan diakui saat jasa diberikan (progres) dan beban yang dikorbankan untuk menghasilkan pendapatan tersebut harus diakui di periode yang sama (basis akrual).</p>
+                            <div style="font-size: 0.85em; background: #f8fafc; padding: 12px; border-radius: 6px; border-left: 3px solid #64748b; margin-top: 10px;"><strong>Penjelasan:</strong> <p>Matching Principle mengharuskan pendapatan diakui saat jasa diberikan (progres) dan beban yang dikorbankan untuk menghasilkan pendapatan tersebut harus diakui di periode yang sama (basis akrual).</p>
 </div>
                         </div>
                     
                         <div class="card">
                             <h3>Soal 2: Mengapa pengabaian terhadap Matching Principle dalam pelaporan beban penyusutan aset tetap dapat menyebabkan distorsi signifikan pada pengambilan keputusan investor?</h3>
-                            <ul style="list-style-type: none; padding-left: 0;">
-                                <li style="padding: 6px; border-radius: 4px; margin-bottom: 4px; border: 1px solid #e2e8f0; background: #f0fdf4; border-color: #bbf7d0; color: #166534; font-weight: bold;">A. Karena laba bersih akan terlihat lebih tinggi dari yang seharusnya pada tahun perolehan aset dan lebih rendah pada tahun-tahun berikutnya.</li><li style="padding: 6px; border-radius: 4px; margin-bottom: 4px; border: 1px solid #e2e8f0;">B. Karena nilai aset di neraca akan selalu mencerminkan nilai pasar saat ini secara akurat.</li><li style="padding: 6px; border-radius: 4px; margin-bottom: 4px; border: 1px solid #e2e8f0;">C. Karena perusahaan akan terhindar dari kewajiban pajak penghasilan yang besar di tahun awal.</li><li style="padding: 6px; border-radius: 4px; margin-bottom: 4px; border: 1px solid #e2e8f0;">D. Karena arus kas operasional akan meningkat secara otomatis akibat pencatatan penyusutan.</li>
+                            <ul style="list-style-type: none; padding-left: 0; margin: 10px 0 0 0;">
+                                <li style="padding: 8px 12px; border-radius: 6px; margin-bottom: 6px; border: 1px solid #bbf7d0; background: #f0fdf4; color: #166534; font-weight: bold; font-size: 0.9em;">A. Karena laba bersih akan terlihat lebih tinggi dari yang seharusnya pada tahun perolehan aset dan lebih rendah pada tahun-tahun berikutnya.</li>
+                                <li style="padding: 8px 12px; border-radius: 6px; margin-bottom: 6px; border: 1px solid #e2e8f0; font-size: 0.9em;">B. Karena nilai aset di neraca akan selalu mencerminkan nilai pasar saat ini secara akurat.</li>
+                                <li style="padding: 8px 12px; border-radius: 6px; margin-bottom: 6px; border: 1px solid #e2e8f0; font-size: 0.9em;">C. Karena perusahaan akan terhindar dari kewajiban pajak penghasilan yang besar di tahun awal.</li>
+                                <li style="padding: 8px 12px; border-radius: 6px; margin-bottom: 6px; border: 1px solid #e2e8f0; font-size: 0.9em;">D. Karena arus kas operasional akan meningkat secara otomatis akibat pencatatan penyusutan.</li>
                             </ul>
                             <p style="margin-top: 8px; font-size: 0.85em;">
                                 <strong>Status Jawaban:</strong> 
                                 <span style="color: #166534; font-weight: bold;">Benar</span>
                             </p>
-                            <div style="font-size: 0.85em; background: #f8fafc; padding: 10px; border-radius: 4px; border-left: 3px solid #64748b; margin-top: 10px;"><strong>Penjelasan:</strong> <p>Jika beban penyusutan tidak dialokasikan (ditandingkan) selama masa manfaat aset, maka laba akan terdistorsi (understatement/overstatement) karena beban tidak mencerminkan penggunaan aset untuk menghasilkan pendapatan di periode tersebut.</p>
+                            <div style="font-size: 0.85em; background: #f8fafc; padding: 12px; border-radius: 6px; border-left: 3px solid #64748b; margin-top: 10px;"><strong>Penjelasan:</strong> <p>Jika beban penyusutan tidak dialokasikan (ditandingkan) selama masa manfaat aset, maka laba akan terdistorsi (understatement/overstatement) karena beban tidak mencerminkan penggunaan aset untuk menghasilkan pendapatan di periode tersebut.</p>
 </div>
                         </div>
                     
                         <div class="card">
                             <h3>Soal 3: Sebuah perusahaan memiliki kebijakan memberikan bonus tahunan kepada staf penjualan berdasarkan kinerja tahun berjalan, namun bonus tersebut baru dibayarkan pada bulan Februari tahun berikutnya. Bagaimana penerapan Matching Principle dalam kasus ini?</h3>
-                            <ul style="list-style-type: none; padding-left: 0;">
-                                <li style="padding: 6px; border-radius: 4px; margin-bottom: 4px; border: 1px solid #e2e8f0;">A. Beban bonus tidak perlu dicatat karena kas belum keluar hingga tahun berikutnya.</li><li style="padding: 6px; border-radius: 4px; margin-bottom: 4px; border: 1px solid #e2e8f0;">B. Beban bonus dicatat pada bulan Februari saat kas dibayarkan untuk menjaga akurasi arus kas.</li><li style="padding: 6px; border-radius: 4px; margin-bottom: 4px; border: 1px solid #e2e8f0; background: #f0fdf4; border-color: #bbf7d0; color: #166534; font-weight: bold;">C. Beban bonus harus diakui sebagai beban pada periode tahun berjalan melalui jurnal penyesuaian untuk menandingkan beban dengan pendapatan penjualan yang dihasilkan.</li><li style="padding: 6px; border-radius: 4px; margin-bottom: 4px; border: 1px solid #e2e8f0;">D. Beban bonus dicatat sebagai aset lancar di akhir tahun karena merupakan hak karyawan yang belum terealisasi.</li>
+                            <ul style="list-style-type: none; padding-left: 0; margin: 10px 0 0 0;">
+                                <li style="padding: 8px 12px; border-radius: 6px; margin-bottom: 6px; border: 1px solid #e2e8f0; font-size: 0.9em;">A. Beban bonus tidak perlu dicatat karena kas belum keluar hingga tahun berikutnya.</li>
+                                <li style="padding: 8px 12px; border-radius: 6px; margin-bottom: 6px; border: 1px solid #e2e8f0; font-size: 0.9em;">B. Beban bonus dicatat pada bulan Februari saat kas dibayarkan untuk menjaga akurasi arus kas.</li>
+                                <li style="padding: 8px 12px; border-radius: 6px; margin-bottom: 6px; border: 1px solid #bbf7d0; background: #f0fdf4; color: #166534; font-weight: bold; font-size: 0.9em;">C. Beban bonus harus diakui sebagai beban pada periode tahun berjalan melalui jurnal penyesuaian untuk menandingkan beban dengan pendapatan penjualan yang dihasilkan.</li>
+                                <li style="padding: 8px 12px; border-radius: 6px; margin-bottom: 6px; border: 1px solid #e2e8f0; font-size: 0.9em;">D. Beban bonus dicatat sebagai aset lancar di akhir tahun karena merupakan hak karyawan yang belum terealisasi.</li>
                             </ul>
                             <p style="margin-top: 8px; font-size: 0.85em;">
                                 <strong>Status Jawaban:</strong> 
                                 <span style="color: #166534; font-weight: bold;">Benar</span>
                             </p>
-                            <div style="font-size: 0.85em; background: #f8fafc; padding: 10px; border-radius: 4px; border-left: 3px solid #64748b; margin-top: 10px;"><strong>Penjelasan:</strong> <p>Berdasarkan akuntansi akrual dan Matching Principle, beban bonus harus diakui pada periode di mana karyawan memberikan jasa (tahun berjalan) agar laba bersih periode tersebut mencerminkan biaya yang sebenarnya dikeluarkan untuk memperoleh pendapatan tersebut.</p>
+                            <div style="font-size: 0.85em; background: #f8fafc; padding: 12px; border-radius: 6px; border-left: 3px solid #64748b; margin-top: 10px;"><strong>Penjelasan:</strong> <p>Berdasarkan akuntansi akrual, bonus karyawan diakui pada tahun terjadinya penjualan (saat jasa diberikan untuk menghasilkan pendapatan), meskipun pembayarannya baru dilakukan pada tahun berikutnya.</p>
 </div>
                         </div>
                     
